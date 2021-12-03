@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Karla:400|Roboto+Mono:400" rel="stylesheet" type="text/css">
+    <title>Image AI</title>
+</head>
+<body>
+<div id="main">
+    <button onclick="lines = []; render()">Clear</button>
+    <input value="" placeholder="Type what this is..." id="value">
+    <button onclick="queueTrain()">Add to training queue</button>
+    <button onclick="endQueue()">Train queue</button>
+    <button onclick="queue = {}; document.getElementById('queue').innerHTML = ''">Clear queue</button>
+    <button onclick="train()">Train</button>
+    <button onclick="runNetwork()">Run</button>
+    <canvas id="canvas" width="32" height="32" class="canvas"></canvas>
+    <h1 style="position: absolute; left: 775px; top: 0">Queue</h1><div class="queue" id="queue"></div>
+</div>
+<span id="o" hidden>Training... <span id="iterations"></span></span>
+</body>
+<script src="https://unpkg.com/brain.js"></script>
+<script src="script.js"></script>
+<style>
+    * {
+        font-family: "Arial Black", serif;
+        user-select: none;
+    }
+
+    button {
+        border: 1px solid black;
+    }
+
+    canvas {
+        border: 1px solid black;
+        width: 256px;
+        height: 256px;
+    }
+
+    .canvas {
+        position: absolute;
+        left: 50px;
+        top: 50px;
+    }
+
+
+    .queue {
+        position: absolute;
+        border: 1px solid black;
+        left: 520px;
+        top: 80px;
+        width: 600px;
+        min-height: 300px;
+        max-height: 650px;
+        overflow-y: scroll;
+        padding: 10px;
+    }
+
+    .queue-part {
+        position: relative;
+        padding-bottom: 40px;
+    }
+
+    .queue-part .contents {
+        margin-top: -100px;
+        margin-left: 140px;
+    }
+</style>
+</html>
