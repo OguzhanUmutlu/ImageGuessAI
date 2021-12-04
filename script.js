@@ -8,7 +8,7 @@ Object.defineProperty(Array.prototype, "chunk", {
     }
 });
 
-const network = new brain.recurrent.LSTM();
+const network = new brain.recurrent.RNN();
 
 let last = null;
 let lines = [];
