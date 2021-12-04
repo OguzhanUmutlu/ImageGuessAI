@@ -8,7 +8,7 @@ Object.defineProperty(Array.prototype, "chunk", {
     }
 });
 
-const network = new brain.NeuralNetwork();
+const network = new brain.recurrent.LSTM();
 
 let last = null;
 let lines = [];
@@ -121,7 +121,7 @@ function train() {
 
 function runNetwork() {
     const {input} = trainCheck(false);
-    console.log(network.run(
+    console.log(JSON.stringify(network.run(
         input
-    ));
+    )));
 }
