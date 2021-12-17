@@ -2,11 +2,7 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-Object.defineProperty(Array.prototype, "chunk", {
-    value: function (size) {
-        return [].concat.apply([], this.map((_, b) => b % size ? [] : [this.slice(b, b + size)]));
-    }
-});
+Object.defineProperty(Array.prototype, "chunk", {value: function (size) {return [].concat.apply([], this.map((_, b) => b % size ? [] : [this.slice(b, b + size)]));}});
 
 const network = new brain.recurrent.RNN();
 
